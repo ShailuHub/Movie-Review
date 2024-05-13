@@ -25,14 +25,17 @@ const generateOtp = (length = 6) => {
 
 const emailTransporter = function () {
   // Create transporter for emailVerification
-  var transport = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.MAILTRAP_USER,
-      pass: process.env.MAILTRAP_PASS,
+      user: "shailesh.respond@gmail.com",
+      pass: process.env.GMAIL_APP_PASS,
     },
   });
+  return transporter;
 };
 
 export { connectDB, emailTransporter, generateOtp, sendError, sendMessage };

@@ -1,5 +1,5 @@
 // Import all the modules
-import dotenv from "dotenv/config";
+import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import bodyParser from "body-parser";
@@ -11,7 +11,7 @@ const uri = process.env.MONGO_URI;
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Routes
 app.use("/api/user", authRouter);
