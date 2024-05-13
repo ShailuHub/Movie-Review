@@ -1,5 +1,5 @@
 // Import all the modules
-import dotenv from "dotenv";
+import dotenv from "dotenv/config";
 dotenv.config();
 import express from "express";
 import bodyParser from "body-parser";

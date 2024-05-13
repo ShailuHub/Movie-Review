@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-const emailVerificationSchema = mongoose.Schema({
+const emailVerificationSchema = new mongoose.Schema({
   emailOwner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

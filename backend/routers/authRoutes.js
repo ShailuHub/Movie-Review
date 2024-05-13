@@ -6,7 +6,7 @@ import {
 } from "../controllers/authControllers.js";
 const router = Router();
 
-router.post("/create", createUser);
-router.post("/verify_email", verifyEmail);
-router.post("/resend_verify_email", resendVerifyEmail);
+router.post("/create-user", createUser);
+router.post("/verify-email", verifyEmail);
+router.post("/resend-verify-email", resendVerifyEmail);
 export default router;

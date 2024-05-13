@@ -1,0 +1,45 @@
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6rem;
+  height: 100vh;
+}
+
+.left-section {
+  padding: 8rem 0;
+  width: 50%;
+  height: 100%;
+}
+
+.left-section h1 {
+  padding-top: 2rem;
+  font-size: 4rem;
+}
+
+.left-section h1 span {
+  color: #00a2ed;
+}
+
+.left-section p span {
+  color: #00a2ed;
+}
+
+.left-section p {
+  padding-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.right-section {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.features {
+  display: flex;
+  margin-top: 4rem;
+  gap: 2rem;
+  justify-content: space-between;
+}

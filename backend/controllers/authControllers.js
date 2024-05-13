@@ -2,7 +2,12 @@ import User from "../modals/userModals.js";
 import EmailVerification from "../modals/emailVerificationModals.js";
 import { isValidObjectId } from "mongoose";
 
-import { generateOtp, sendError, emailTransporter } from "../util/index.js";
+import {
+  generateOtp,
+  sendError,
+  emailTransporter,
+  sendMessage,
+} from "../util/index.js";
 // Handle Error
 const handleError = (err) => {
   let errors = { name: "", email: "", password: "" };
@@ -39,7 +44,7 @@ const createUser = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-    sendError(
+    sendMessage(
       res,
       201,
       "User is created and email verification code has sent to your registered email"
@@ -90,7 +95,7 @@ const resendVerifyEmail = async (req, res) => {
     emailOwner: userId,
   });
   if (alreadyHastoken)
-    return sendError(
+    return sendMessage(
       res,
       201,
       "You can able to resend verification email only after 1 hr"

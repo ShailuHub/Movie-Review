@@ -1,0 +1,30 @@
+.heading-subtitle {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.heading-subtitle span {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.otp-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.otp-container input {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  outline: none;
+  border: 0.1rem solid lightslategray;
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.otp-container input:focus {
+  border: 0.1rem solid white;
+}
