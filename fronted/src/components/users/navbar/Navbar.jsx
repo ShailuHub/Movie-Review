@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const userToken = useSelector((store) => store.auth.userToken);
   return (
     <>
       <header className="header">
@@ -11,9 +13,11 @@ const Navbar = () => {
               <span>R</span>eviewer
             </p>
           </div>
-          <div className="searchbox">
-            <input type="text" placeholder="search" />
-          </div>
+          {userToken && (
+            <div className="searchbox">
+              <input type="text" placeholder="search" />
+            </div>
+          )}
           <div className="header-buttons">
             <NavLink to="/">Register</NavLink>
             <NavLink to="/login">Login</NavLink>

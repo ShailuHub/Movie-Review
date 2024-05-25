@@ -20,11 +20,21 @@
   color: white;
 }
 
+.auth-special-link:hover {
+  color: #00a2ed;
+}
+
 .auth-title {
   text-align: center;
   font-size: 3.5rem;
   color: #00a2ed;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
+}
+
+.auth-error {
+  font-size: 1.8rem;
+  color: red;
+  margin-bottom: 0.8rem;
 }
 
 .auth-feature-container {

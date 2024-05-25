@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
-import User from "../modals/userModals";
-import { sendError } from "../util";
+import User from "../modals/userModals.js";
+import { sendError } from "../util/index.js";
 
-const authenticateUser = async (req, res, next) => {
-  const token = req.headers.authorization;
+const authenticatedUser = async (req, res, next) => {
+  const token = req.headers.authorization.split(" ")[1];
   try {
     const decodeToken = jwt.verify(token, process.env.JSON_WEB_SECRET_KEY);
     const user = await User.findOne({ _id: decodeToken._id });
@@ -16,4 +16,4 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
-export default authenticateUser;
+export default authenticatedUser;

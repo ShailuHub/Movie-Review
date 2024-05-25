@@ -29,8 +29,12 @@ const AuthFeatureTitle = ({ value }) => {
   return <p className="auth-featur-heading-title">{value}</p>;
 };
 
-const AuthFeatureButton = ({ value }) => {
-  return <button className="auth-feature-button">{value}</button>;
+const AuthFeatureButton = ({ value, onClick }) => {
+  return (
+    <button className="auth-feature-button" onClick={onClick}>
+      {value}
+    </button>
+  );
 };
 
 export {

@@ -4,11 +4,42 @@ import {
   verifyEmail,
   resendVerifyEmail,
   signInUser,
+  forgotPassword,
+  resetPassword,
 } from "../controllers/authControllers.js";
-const router = Router();
+import authenticatedUser from "../middleware/authentication.js";
+import {
+  validateNameEmailPassword,
+  validateEmailPassword,
+  validateEmailOnly,
+  validateResetPassword,
+  validate,
+} from "../middleware/Validator.js";
+const authRouter = Router();
 
-router.post("/create-user", createUser);
-router.post("/verify-email", verifyEmail);
-router.post("/resend-verify-email", resendVerifyEmail);
-router.post("/login", signInUser);
-export default router;
+authRouter.post(
+  "/create-user",
+  validateNameEmailPassword,
+  validate,
+  createUser
+);
+
+authRouter.post("/verify-email", authenticatedUser, verifyEmail);
+
+authRouter.post("/resend-verify-email", authenticatedUser, resendVerifyEmail);
+
+authRouter.post(
+  "/forgot-password",
+  validateEmailOnly,
+  validate,
+  forgotPassword
+);
+
+authRouter.post(
+  "/reset-password",
+  validateResetPassword,
+  validate,
+  resetPassword
+);
+authRouter.post("/login", validateEmailPassword, validate, signInUser);
+export default authRouter;
